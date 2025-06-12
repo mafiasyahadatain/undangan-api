@@ -1,6 +1,7 @@
 <?php
 
 use App\Controllers\WelcomeController;
+use App\Controllers\Api\AuthController;
 use Core\Routing\Route;
 
 /**
