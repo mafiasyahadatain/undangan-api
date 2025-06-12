@@ -28,11 +28,8 @@ class RouteServiceProvider extends Provider
     {
         $this->app->singleton(Router::class);
         if (!Route::setRouteFromCacheIfExist()) {
-            // Sementara kita disable CSRF middleware:
-            Route::group(function () {
-                Route::setRouteFromFile();
-            });
-
+            // Hapus CSRF sementara:
+            Route::setRouteFromFile();
 
             Route::prefix(static::$API_PREFIX)->middleware(CookieMiddleware::class)->group(function () {
                 Route::get('/health', [static::class, 'health']);
